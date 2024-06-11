@@ -1,13 +1,13 @@
-# service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: myapp-service
+  name: flask-app-service
 spec:
+  type: NodePort
   selector:
-    app: myapp
+    app: flask-app
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 5000
-  type: LoadBalancer
+  - protocol: TCP
+    port: 80
+    targetPort: 5000
+    nodePort: 30007
